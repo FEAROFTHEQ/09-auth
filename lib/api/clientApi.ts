@@ -1,6 +1,6 @@
 import { User } from "@/types/user";
 import type { Note, NoteFormValues } from "../../types/note";
-import { nextServer } from "../api";
+import { nextServer } from "./api";
 
 interface NotesResponse {
   notes: Note[];
