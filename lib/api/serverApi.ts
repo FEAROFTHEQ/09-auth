@@ -26,10 +26,11 @@ export async function getMe(): Promise<User> {
   return data;
 }
 export async function fetchNoteById(id: string): Promise<Note> {
+  const cookieStore = await cookies();
   const response = await nextServer.get<Note>(`/notes/${id}`, {
-    // headers: {
-    //   Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
-    // },
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
   });
   return response.data;
 }
@@ -38,6 +39,7 @@ export async function fetchNotes(
   page: number,
   searchSlug?: string
 ): Promise<{ notes: Note[]; totalPages: number }> {
+  const cookieStore = await cookies();
   const response = await nextServer.get<NotesResponse>("/notes", {
     params: {
       search: query,
@@ -45,9 +47,20 @@ export async function fetchNotes(
       perPage: 12,
       tag: searchSlug,
     },
-    // headers: {
-    //   Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
-    // },
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
   });
+  return response.data;
+}
+export async function deleteNote(id: string): Promise<Note> {
+  const cookieStore = cookies();
+
+  const response = await nextServer.delete<Note>(`/notes/${id}`, {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+
   return response.data;
 }

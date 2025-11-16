@@ -8,7 +8,7 @@ import { useId, useState } from "react";
 import type { NoteFormValues, NoteTag } from "../../types/note";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { createNote } from "../../lib/api";
+import { createNote } from "../../lib/api/clientApi";
 import { useNoteStore } from "@/lib/store/noteStore";
 
 const NoteFormSchema = Yup.object().shape({
