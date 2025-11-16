@@ -19,9 +19,6 @@ export async function fetchNotes(
       perPage: 12,
       tag: searchSlug,
     },
-    // headers: {
-    //   Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
-    // },
   });
   return response.data;
 }
@@ -52,7 +49,7 @@ export async function fetchNoteById(id: string): Promise<Note> {
 export type RegisterRequest = {
   email: string;
   password: string;
-  userName: string;
+  // userName: string;
 };
 
 export async function register(data: RegisterRequest) {
@@ -83,7 +80,7 @@ export async function getMe() {
   const { data } = await nextServer.get<User>("/users/me");
   return data;
 }
-export async function updateMe(data: { username: string }): Promise<User>{
-   const res = await nextServer.patch("/users/me", data);
+export async function updateMe(data: { username: string }): Promise<User> {
+  const res = await nextServer.patch("/users/me", data);
   return res.data;
 }
