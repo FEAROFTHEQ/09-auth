@@ -4,7 +4,7 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import NotesClient from "./Notes.client";
-import { fetchNotes } from "@/lib/api";
+import { fetchNotes } from "@/lib/api/serverApi";
 import ALL_NOTES from "@/lib/all";
 import { Metadata } from "next";
 
@@ -27,7 +27,7 @@ export async function generateMetadata({
     openGraph: {
       title: metaTitle,
       description: metaDescr,
-      url: `https://08-zustand-six-omega.vercel.app/notes/filter/${
+      url: `https://09-auth-jszo.vercel.app/notes/filter/${
         searchSlug ?? "all"
       }`,
       siteName: metaTitle,

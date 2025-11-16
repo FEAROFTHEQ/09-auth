@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import css from "./ProfilePage.module.css";
 import Image from "next/image";
+import { getMe } from "@/lib/api/serverApi";
 
 export const metadata: Metadata = {
   title: "Profile page",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Profile page",
     description: "This page shows your profile and helps to easily manage it.",
-    url: "",
+    url: "https://09-auth-jszo.vercel.app/",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
@@ -22,7 +23,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  const user = await getMe();
   return (
     <main className={css.mainContent}>
       <div className={css.profileCard}>
@@ -42,8 +44,8 @@ export default function ProfilePage() {
           />
         </div>
         <div className={css.profileInfo}>
-          <p>Username: your_username</p>
-          <p>Email: your_email@example.com</p>
+          <p>Username: {user.username}</p>
+          <p>Email: {user.email}</p>
         </div>
       </div>
     </main>

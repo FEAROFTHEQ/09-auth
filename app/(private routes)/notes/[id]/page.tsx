@@ -1,4 +1,4 @@
-import { fetchNoteById } from "@/lib/api";
+import { fetchNoteById } from "@/lib/api/serverApi";
 import NoteDetailsClient from "./NoteDetails.client";
 import {
   dehydrate,
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Note: ${note.title}`,
       description: note.content.slice(0, 30),
-      url: `https://08-zustand-six-omega.vercel.app/notes/${id}`,
+      url: `https://09-auth-jszo.vercel.app/notes/${id}`,
       siteName: `Note: ${note.title}`,
       images: [
         {

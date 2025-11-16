@@ -1,7 +1,7 @@
-export default function Layout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return <section></section>;
-}
+// export default function Layout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return <section></section>;
+// }
