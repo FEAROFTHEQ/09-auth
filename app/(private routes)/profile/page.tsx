@@ -1,4 +1,26 @@
-import css './ProfilePage.module.css'
+import Link from "next/link";
+import type { Metadata } from "next";
+import css from "./ProfilePage.module.css";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Profile page",
+  description: "This page shows your profile and helps to easily manage it.",
+  openGraph: {
+    title: "Profile page",
+    description: "This page shows your profile and helps to easily manage it.",
+    url: "",
+    images: [
+      {
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Profile page",
+      },
+    ],
+    type: "article",
+  },
+};
 
 export default function ProfilePage() {
   return (
@@ -6,12 +28,12 @@ export default function ProfilePage() {
       <div className={css.profileCard}>
         <div className={css.header}>
           <h1 className={css.formTitle}>Profile Page</h1>
-          <a src="" className={css.editProfileButton}>
+          <Link href="" className={css.editProfileButton}>
             Edit Profile
-          </a>
+          </Link>
         </div>
         <div className={css.avatarWrapper}>
-          <img
+          <Image
             src="Avatar"
             alt="User Avatar"
             width={120}
