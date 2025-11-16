@@ -20,9 +20,11 @@ export default function SignUp() {
         setError("Invalid email or password");
       }
     } catch (err) {
-      setError(
-        error.response?.data?.error ?? error.message ?? "Oops... some error"
-      );
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Oops... some error");
+      }
     }
   };
   return (

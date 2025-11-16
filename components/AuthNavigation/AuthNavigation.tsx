@@ -17,22 +17,6 @@ export default function AuthNavigation() {
     clearIsAuthenticated();
     router.push("/sign-in");
   };
-
-  //  return isAuthenticated ? (
-  //   <li>
-  //     <p>{user?.email}</p>
-  //     <button onClick={handleLogout}>Logout</button>
-  //   </li>
-  // ) : (
-  //   <>
-  //     <li>
-  //       <Link href="/sign-in">Login</Link>
-  //     </li>
-  //     <li>
-  //       <Link href="/sign-up">Sign up</Link>
-  //     </li>
-  //   </>
-  // );
   return isAuthenticated ? (
     <>
       <li className={css.navigationItem}>

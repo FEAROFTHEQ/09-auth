@@ -30,13 +30,13 @@ export default async function ProfilePage() {
       <div className={css.profileCard}>
         <div className={css.header}>
           <h1 className={css.formTitle}>Profile Page</h1>
-          <Link href="" className={css.editProfileButton}>
+          <Link href="/profile/edit" className={css.editProfileButton}>
             Edit Profile
           </Link>
         </div>
         <div className={css.avatarWrapper}>
           <Image
-            src="Avatar"
+            src={user.avatar}
             alt="User Avatar"
             width={120}
             height={120}

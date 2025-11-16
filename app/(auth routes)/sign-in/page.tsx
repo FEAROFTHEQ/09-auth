@@ -20,10 +20,12 @@ export default function SignIn() {
       } else {
         setError("Invalid email or password");
       }
-    } catch (error) {
-      setError(
-        error.response?.data?.error ?? error.message ?? "Oops... some error"
-      );
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Oops... some error");
+      }
     }
   };
   return (
