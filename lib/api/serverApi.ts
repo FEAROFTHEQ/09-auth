@@ -54,7 +54,7 @@ export async function fetchNotes(
   return response.data;
 }
 export async function deleteNote(id: string): Promise<Note> {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
   const response = await nextServer.delete<Note>(`/notes/${id}`, {
     headers: {
